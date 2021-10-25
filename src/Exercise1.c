@@ -17,7 +17,20 @@ ______________________________________
 
 void Ex1(int n){
 	//Your codes here
-    
+	//sub-arr to save generated values
+    int arr[n][n];
+	for (int line=0; line<n; line++){
+		for (int i=0; i<=line; i++){
+			//the first and last of each line is 1
+			if (line == i||i==0)
+			arr[line][i]=1;
+			//pascal triangle's law
+			else
+			arr[line][i] = arr[line-1][i-1] + arr[line-1][i];
+		printf("%d ", arr[line][i]);
+		}
+	printf("\n");
+	}
 }
 
 int main(int argc, char *argv[]) {
