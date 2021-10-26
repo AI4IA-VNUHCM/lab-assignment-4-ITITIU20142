@@ -51,7 +51,27 @@ void Ex3(int in_arr[], int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(in_arr,a,n,n);
 	//Your codes here
-	
+	int i, j;
+	for (i = 0; i < n ; i++){
+		for (j = i+1; j<n; j++){
+			int min=a[i][i];
+			if (a[j][j] < min){
+				min = a[j][j];
+				a[j][j] = a[i][i];
+				a[i][i] = min;
+			}
+		}
+	}
+	for (i=0; i<n; i++){
+		for (j=i+1; j<n; j++){
+			int max = a[i][n-i-1];
+			if (a[j][n-j-1] < max){
+				max = a[j][n-j-1];
+				a[j][n-j-1] = a[i][n-i-1];
+				a[i][n-i-1] = max;
+			}
+		}
+	}			
 	printArray(a,n,n);
 }
 
