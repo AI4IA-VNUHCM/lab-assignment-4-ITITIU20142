@@ -54,17 +54,35 @@ void insertRow(int arr[], int a[SIZE][SIZE],int rowIndex, int m, int n){
 
 void removeRow(int a[SIZE][SIZE], int rowIndex, int m, int n){
 	//Your codes here
-	
+	int row, column, location, rerow;
+	for (row=0; row<m; row++){
+		for (rerow=location; row<m; row++){
+			for(column=0; column<n; column++){
+			a[rerow][column]=a[rerow+1][column];	
+		}
+		}
+		row--;
+		m--;
+	}
 }
 
 void insertCol(int arr[], int a[SIZE][SIZE],int colIndex, int m, int n){
 	//Your codes here
-	
+
 }
 
 void removeCol(int a[SIZE][SIZE], int colIndex, int m, int n){
 	//Your codes here
-	
+	int row, column, location, recol;
+	for (row=0; row<m; row++){
+		for (recol=location; row<m; row++){
+			for(column=0; column<n; column++){
+			a[recol][column]=a[recol+1][column];
+			}
+		}
+		row--;
+		m--;
+	}
 }
 
 int main(int argc, char *argv[]) {

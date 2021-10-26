@@ -53,11 +53,35 @@ void Ex2(int arr[], int m, int n){
 	int a[SIZE][SIZE];
 	Array2Dconverter(arr,a,m,n);
 	//Your codes here
-
+	int row, column, k;
+	for (column = 0; column <n ; column ++){
+		if (column%2 == 0){
+			for (row = 0; row < m; row ++){
+				for (k=row+1; k<m; k++){
+				if (a[row][column] < a[k][column]){
+					int temp = a[row][column];
+					a[row][column] = a[k][column];
+					a[k][column] = temp;
+				}
+				}
+			}
+		}
+		else {
+			for (row = 0; row < m ; row ++){
+				for (k=row+1; k<m; k++){
+				if (a[row][column] > a[k][column]){
+					int temp = a[row][column];
+					a[row][column] = a[k][column];
+					a[k][column] = temp;
+				}
+				}
+			}
+		}
+	}
 	printArray(a, m, n);
 }
 
-int main(int argc, char *argv[]) {
+int main(int argc, char *argv[]){
 	//testing variable, applying it to your algorithm for auto-evaluating
 	int row = atoi(argv[1]);
 	int col = atoi(argv[2]);
